@@ -19,6 +19,10 @@ jobs:
         with:
           java-version: '8'
           distribution: 'zulu'
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v4.2
+        with:
+          maven-version: 3.8.1
       - name: Build with Maven
         run: mvn -B package --file ./advanced-achievements-plugin/pom.xml
 
@@ -27,3 +31,5 @@ jobs:
         with:
           name: "advanced-achievements"
           path: target/
+      - name: Validate formatting
+        run: mvn validate formatter:validate
