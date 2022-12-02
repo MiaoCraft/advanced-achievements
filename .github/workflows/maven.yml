@@ -20,10 +20,10 @@ jobs:
           java-version: '8'
           distribution: 'zulu'
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B package --file ./advanced-achievements-plugin/pom.xml
 
       - name: Upload a Build Target
         uses: actions/upload-artifact@v2.3.1
         with:
-          name: "Plugin"
+          name: "advanced-achievements"
           path: target/
